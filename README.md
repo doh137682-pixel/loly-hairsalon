@@ -1,6 +1,6 @@
 # Loly Hairsalon - Website Đặt Lịch & Dịch Vụ Tóc
 
-Đây là dự án cá nhân mô phỏng website của một Salon tóc cao cấp. Dự án tập trung vào việc xây dựng giao diện Responsive, xử lý logic lọc sản phẩm và tối ưu trải nghiệm người dùng (UX).
+Đây là dự án cá nhân mô phỏng website của một Salon tóc. Dự án tập trung vào việc xây dựng giao diện Responsive, xử lý logic lọc sản phẩm và tối ưu trải nghiệm người dùng (UX).
 
 ##  Tính năng nổi bật
 - **Giao diện Responsive:** Tương thích hoàn toàn trên Mobile, Tablet và Desktop.
@@ -16,3 +16,4 @@
 ##  Demo
 
 [https://doh137682-pixel.github.io/loly-hairsalon/]
+
