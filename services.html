@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Dịch Vụ - Loly Hairsalon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo-link"><img src="images/logo.png" alt="Loly Hairsalon" class="logo"></a>
+        <div class="nav-right">
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="services.html" class="active">Dịch vụ</a></li>
+                    <li><a href="blog.html">Ưu đãi & Sự kiện</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <a href="booking.html" class="btn-book">Đặt lịch ngay</a>
+            <div class="menu-toggle"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        </div>
+    </header>
+
+    <main style="padding-top: 100px;">
+        <div class="swans-layout">
+            <aside class="swans-sidebar fade-in-section">
+                <div class="sidebar-title">DANH MỤC</div>
+                <ul class="filter-list">
+                    <li class="filter-item active" data-group="all"><span class="checkbox-mock"></span> TẤT CẢ</li>
+                    <li class="filter-item" data-group="cat-toc"><span class="checkbox-mock"></span> CẮT TÓC NỮ</li>
+                    <li class="filter-item" data-group="uon"><span class="checkbox-mock"></span> UỐN HÀN QUỐC</li>
+                    <li class="filter-item" data-group="nhuom"><span class="checkbox-mock"></span> NHUỘM THỜI TRANG</li>
+                    <li class="filter-item" data-group="tay-toc"><span class="checkbox-mock"></span> TẨY TÓC</li>
+                    <li class="filter-item" data-group="phuc-hoi"><span class="checkbox-mock"></span> PHỤC HỒI</li>
+                    <li class="filter-item" data-group="goi-dau"><span class="checkbox-mock"></span> GỘI DƯỠNG SINH</li>
+                </ul>
+                <div class="toggle-filter">Thu gọn <i class="fas fa-chevron-up"></i></div>
+            </aside>
+
+            <div class="swans-main-content fade-in-section">
+                <div class="collection-header">
+                    <h1 class="collection-title">Dịch vụ tại Loly</h1>
+                    <div class="sort-box">
+                        Sắp xếp:
+                        <select class="sort-dropdown">
+                            <option>Phổ biến nhất</option>
+                            <option>Giá thấp đến cao</option>
+                            <option>Mới nhất</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="swans-grid" id="product-grid">
+                    <div class="swans-card page-1" data-group="cat-toc" data-price="300000">
+                        <div class="swans-img-wrap"><img src="images/serv-cut.jpg" alt="Cắt Layer"></div>
+                        <div class="swans-brand">LOLY SIGNATURE</div>
+                        <div class="swans-name">Cắt Layer Thiết Kế</div>
+                        <div class="product-price">300.000đ</div> 
+                        <a href="contact.html" class="btn-black-contact">Liên hệ</a>
+                    </div>
+                    <div class="swans-card page-1" data-group="uon" data-price="800000">
+                        <div class="swans-img-wrap"><img src="images/serv-uon-1.jpg" alt="Uốn Sóng Lơi"></div>
+                        <div class="swans-brand">BEST SELLER</div>
+                        <div class="swans-name">Uốn Sóng Lơi Hàn Quốc</div>
+                        <div class="product-price">800.000đ</div> 
+                        <a href="contact.html" class="btn-black-contact">Liên hệ</a>
+                    </div>
+                    <div class="swans-card page-1" data-group="nhuom" data-price="600000">
+                        <div class="swans-img-wrap"><img src="images/serv-color.jpg" alt="Nhuộm Nâu Tây"></div>
+                        <div class="swans-brand">L'OREAL PRO</div>
+                        <div class="swans-name">Nhuộm Nâu Tây / Lạnh</div>
+                        <div class="product-price">600.000đ</div> 
+                        <a href="contact.html" class="btn-black-contact">Liên hệ</a>
+                    </div>
+                    <div class="swans-card page-1" data-group="goi-dau" data-price="150000">
+                        <div class="swans-img-wrap"><img src="images/serv-spa.jpg" alt="Gội dưỡng sinh"></div>
+                        <div class="swans-brand">THƯ GIÃN</div>
+                        <div class="swans-name">Gội Đầu Dưỡng Sinh</div>
+                        <div class="product-price">150.000đ</div> 
+                        <a href="contact.html" class="btn-black-contact">Liên hệ</a>
+                    </div>
+                    <div class="swans-card page-1" data-group="phuc-hoi" data-price="1000000">
+                        <div class="swans-img-wrap"><img src="images/serv-phuchoi.jpg" alt="Phục hồi tóc"></div>
+                        <div class="swans-brand">OLAPLEX</div>
+                        <div class="swans-name">Phục Hồi Cấu Trúc Tóc</div>
+                        <div class="product-price">1.000.000đ</div> 
+                        <a href="contact.html" class="btn-black-contact">Liên hệ</a>
+                    </div>
+                    <div class="swans-card page-1" data-group="tay-toc" data-price="2000000">
+                        <div class="swans-img-wrap"><img src="images/serv-balayage.jpg" alt="Balayage"></div>
+                        <div class="swans-brand">KỸ THUẬT CAO</div>
+                        <div class="swans-name">Tẩy & Nhuộm Balayage</div>
+                        <div class="product-price">2.000.000đ</div> 
+                        <a href="contact.html" class="btn-black-contact">Liên hệ</a>
+                    </div>
+                    
+                    <div class="swans-card page-2" data-group="cat-toc" data-price="350000" style="display: none;">
+                        <div class="swans-img-wrap"><img src="images/serv-bob.jpg" alt="Cắt Bob"></div>
+                        <div class="swans-brand">TRENDY</div>
+                        <div class="swans-name">Cắt Tóc Bob Nhật</div>
+                        <div class="product-price">350.000đ</div> 
+                        <a href="contact.html" class="btn-black-contact">Liên hệ</a>
+                    </div>
+                    <div class="swans-card page-2" data-group="uon" data-price="900000" style="display: none;">
+                        <div class="swans-img-wrap"><img src="images/serv-hippie.jpg" alt="Uốn Hippie"></div>
+                        <div class="swans-brand">CÁ TÍNH</div>
+                        <div class="swans-name">Uốn Xoăn Hippie</div>
+                        <div class="product-price">900.000đ</div> 
+                        <a href="contact.html" class="btn-black-contact">Liên hệ</a>
+                    </div>
+                    <div class="swans-card page-2" data-group="nhuom" data-price="1200000" style="display: none;">
+                        <div class="swans-img-wrap"><img src="images/serv-highlight.jpg" alt="Highlight"></div>
+                        <div class="swans-brand">NỔI BẬT</div>
+                        <div class="swans-name">Nhuộm Highlight Gẩy Light</div>
+                        <div class="product-price">1.200.000đ</div> 
+                        <a href="contact.html" class="btn-black-contact">Liên hệ</a>
+                    </div>
+                </div>
+
+                <div class="pagination-wrapper">
+                    <div class="pagination">
+                        <a href="#" class="page-item active">1</a>
+                        <a href="#" class="page-item">2</a>
+                        <a href="#" class="page-item next"><i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content-wrapper" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 1100px; margin: 0 auto; text-align: left; padding-bottom: 30px;">
+            <div class="footer-col" style="flex: 1; min-width: 300px; margin-bottom: 20px;">
+                <h3 style="font-size: 2rem; margin-top: 0; margin-bottom: 20px; color: #3d322d; font-family: 'Playfair Display', serif; line-height: 1.2;">Loly Hairsalon</h3>
+                <p style="margin-bottom: 12px; font-size: 15px;"><i class="fas fa-map-marker-alt" style="color: #b08d55; width: 20px;"></i> 51/215 Định Công Thượng, Hoàng Mai, HN</p>
+                <p style="margin-bottom: 12px; font-size: 15px;"><i class="fas fa-phone-alt" style="color: #b08d55; width: 20px;"></i> <a href="tel:0394536413" style="color: #5a4a42; font-weight: bold;">039.453.6413</a></p>
+                <div class="social-icons" style="margin-top: 20px; position: relative; z-index: 10;">
+                    <a href="#" style="margin-right: 15px; font-size: 1.5rem; color: #3b5998;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="margin-right: 15px; font-size: 1.5rem; color: #C13584;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="font-size: 1.5rem; color: #000;"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col" style="flex: 1; min-width: 300px; margin-bottom: 20px;">
+                <h4 style="font-size: 1.3rem; margin-top: 0; margin-bottom: 20px; color: #b08d55; font-family: 'Playfair Display', serif; letter-spacing: 1px; line-height: 1.2; padding-top: 8px;">GIỜ MỞ CỬA</h4>
+                <div class="balanced-hours">
+                    <div class="time-row"><span class="d-label">Thứ 2 - Thứ 6</span><span class="d-time">09:00 - 20:00</span></div>
+                    <div class="time-row"><span class="d-label">Thứ 7 - CN</span><span class="d-time">08:30 - 21:00</span></div>
+                    <div class="shop-active"><span class="pulsing-dot"></span> Sẵn sàng đón tiếp bạn</div>
+                </div>
+            </div>
+        </div>
+        <p class="copyright" style="border-top: 1px solid #e6d5c7; padding-top: 20px; margin-top: 20px;">© 2025 Loly Hairsalon. Đã đăng ký bản quyền.</p>
+    </footer>
+
+    <div class="floating-cta">
+        <a href="booking.html" class="cta-btn btn-booking"><span>ĐẶT<br>HẸN</span></a>
+        <a href="tel:0394536413" class="cta-btn btn-phone"><i class="fas fa-phone-alt"></i></a>
+        <a href="#" class="cta-btn btn-zalo"><span style="font-weight: 900; font-family: sans-serif;">Zalo</span></a>
+        <a href="#" class="cta-btn btn-mess"><i class="fab fa-facebook-messenger"></i></a>
+        <a href="#" class="cta-btn btn-map"><i class="fas fa-map-marker-alt"></i></a>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

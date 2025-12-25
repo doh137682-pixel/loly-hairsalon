@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - Loly Hairsalon</title>
+    <meta name="description" content="Liên hệ với Loly Hairsalon để được tư vấn và đặt lịch làm tóc.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+
+<body>
+    <header class="navbar">
+        <a href="index.html" class="logo-link"><img src="images/logo.png" alt="Loly Hairsalon" class="logo"></a>
+        <div class="nav-right">
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="services.html">Dịch vụ</a></li>
+                    <li><a href="blog.html">Ưu đãi & Sự kiện</a></li>
+                    <li><a href="contact.html" class="active">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <a href="booking.html" class="btn-book">Đặt lịch ngay</a>
+            <div class="menu-toggle"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        </div>
+    </header>
+
+    <main style="padding-bottom: 40px;">
+        <div class="contact-header fade-in-section">
+            <h4 style="color: #b08d55; text-transform: uppercase; letter-spacing: 2px;">Kết nối với chúng tôi</h4>
+            <h1>Liên hệ & Hỗ trợ</h1>
+        </div>
+
+        <div class="contact-container fade-in-section">
+            <div class="contact-info">
+                <div class="info-group">
+                    <h3>Địa chỉ Salon</h3>
+                    <p><strong>Cơ sở chính:</strong> Số 51/215 Định Công Thượng, Hoàng Mai, Hà Nội</p>
+                    <p style="font-style: italic; color: #888;">(Có chỗ để xe ô tô rộng rãi)</p>
+                </div>
+                <div class="info-group">
+                    <h3>Hotline & Email</h3>
+                    <p><strong>Hotline:</strong> <a href="tel:0394536413" style="color: #333; font-weight: bold;">0394 536 413</a></p>
+                    <p><strong>Email:</strong> doh137682@gmail.com</p>
+                </div>
+                <div class="info-group">
+                    <h3>Giờ mở cửa</h3>
+                    <p>Thứ 2 - Chủ Nhật: 08:30 - 21:00</p>
+                    <p style="font-style: italic; color: #888;">(Vui lòng đặt lịch trước để được phục vụ tốt nhất)</p>
+                </div>
+            </div>
+            
+            <div class="contact-form-wrapper">
+                <form action="https://formspree.io/f/xrezerwy" method="POST">
+                    <div class="form-group">
+                        <label>Họ và tên</label>
+                        <input type="text" name="name" placeholder="Nhập tên của bạn" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <input type="tel" name="phone" placeholder="Nhập số điện thoại" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Dịch vụ quan tâm</label>
+                        <select name="service">
+                            <option value="">Chọn dịch vụ bạn cần tư vấn</option>
+                            <option value="cat-toc">Cắt tóc & Tạo kiểu</option>
+                            <option value="uon-nhuom">Uốn & Nhuộm</option>
+                            <option value="phuc-hoi">Phục hồi tóc hư tổn</option>
+                            <option value="goi-dau">Gội đầu dưỡng sinh</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Lời nhắn</label>
+                        <textarea name="message" rows="4" placeholder="Bạn có yêu cầu đặc biệt gì không?"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #b08d55; width: 100%; border-radius: 30px;">Gửi thông tin</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer" style="background-color: #fdfaf7;">
+        <div class="footer-content-wrapper" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 1100px; margin: 0 auto; text-align: left; padding-bottom: 30px;">
+            <div class="footer-col" style="flex: 1; min-width: 300px; margin-bottom: 20px;">
+                <h3 style="font-size: 2rem; margin-top: 0; margin-bottom: 20px; color: #3d322d; font-family: 'Playfair Display', serif; line-height: 1.2;">Loly Hairsalon</h3>
+                <p style="margin-bottom: 12px; font-size: 15px;">
+                    <i class="fas fa-map-marker-alt" style="color:#b08d55; width: 20px;"></i>
+                    51/215 Định Công Thượng, Hoàng Mai, HN
+                </p>
+                <p style="margin-bottom: 12px; font-size: 15px;">
+                    <i class="fas fa-phone-alt" style="color:#b08d55; width: 20px;"></i>
+                    <a href="tel:0394536413" style="color: #5a4a42; font-weight: bold;">039.453.6413</a>
+                </p>
+                <div class="social-icons" style="margin-top: 20px; position: relative; z-index: 10;">
+                    <a href="https://www.facebook.com/ohung.541741/?locale=vi_VN" target="_blank" style="margin-right: 15px; font-size: 1.5rem; color: #3b5998; text-decoration: none;"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/trangcuaban" target="_blank" style="margin-right: 15px; font-size: 1.5rem; color: #C13584; text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@duchung232?lang=vi-VN" target="_blank" style="margin-right: 15px; font-size: 1.5rem; color: #000; text-decoration: none;"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col" style="flex: 1; min-width: 300px; margin-bottom: 20px;">
+                <h4 style="font-size: 1.3rem; margin-top: 0; margin-bottom: 20px; color: #b08d55; font-family: 'Playfair Display', serif; letter-spacing: 1px; line-height: 1.2; padding-top: 8px;">GIỜ MỞ CỬA</h4>
+                <div class="balanced-hours">
+                    <div class="time-row">
+                        <span class="d-label">Thứ 2 - Thứ 6</span>
+                        <span class="d-time">09:00 - 20:00</span>
+                    </div>
+                    <div class="time-row">
+                        <span class="d-label">Thứ 7 - CN</span>
+                        <span class="d-time">08:30 - 21:00</span>
+                    </div>
+                    <div class="shop-active">
+                        <span class="pulsing-dot"></span> Sẵn sàng đón tiếp bạn
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="copyright" style="border-top: 1px solid #e6d5c7; padding-top: 20px; margin-top: 20px;">
+            © 2025 Loly Hairsalon. Đã đăng ký bản quyền.
+        </p>
+    </footer>
+
+    <div class="floating-cta">
+        <a href="booking.html" class="cta-btn btn-booking"><span>ĐẶT<br>HẸN</span></a>
+        <a href="tel:0394536413" class="cta-btn btn-phone"><i class="fas fa-phone-alt"></i></a>
+        <a href="https://zalo.me/0394536413" target="_blank" class="cta-btn btn-zalo"><span style="font-weight: 900; font-family: sans-serif;">Zalo</span></a>
+        <a href="https://m.me/trangfacebookcuaban" target="_blank" class="cta-btn btn-mess"><i class="fab fa-facebook-messenger"></i></a>
+        <a href="https://www.google.com/maps/search/51%2F215+Định+Công+Thượng,+Hoàng+Mai,+Hà+Nội" target="_blank" class="cta-btn btn-map"><i class="fas fa-map-marker-alt"></i></a>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

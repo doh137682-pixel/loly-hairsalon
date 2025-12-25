@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loly Hairsalon - Trang chủ</title>
+    <meta name="description" content="Loly Hairsalon - Salon tóc chuyên nghiệp, uy tín. Nơi nâng tầm vẻ đẹp mái tóc của bạn.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo-link"><img src="images/logo.png" alt="Loly Hairsalon" class="logo"></a>
+        <div class="nav-right">
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html" class="active">Trang chủ</a></li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="services.html">Dịch vụ</a></li>
+                    <li><a href="blog.html">Ưu đãi & Sự kiện</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <a href="booking.html" class="btn-book">Đặt lịch ngay</a>
+            <div class="menu-toggle"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-slider">
+            <div class="slide active" style="background-image: url('images/banner-hero.jpg');">
+                <div class="slide-content">
+                    <h1>Nơi mái tóc của bạn được thăng hoa</h1>
+                    <p>Hãy để các chuyên gia của Loly Hairsalon giúp bạn viết nên chương đẹp nhất.</p>
+                    <a href="booking.html" class="btn-book">Đặt lịch ngay</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/banner-team.jpg');">
+                <div class="slide-content">
+                    <h1>Đội ngũ kĩ thuật trên 10 năm kinh nghiệm</h1>
+                    <p>Tận tâm - Chuyên nghiệp - Sáng tạo trong từng đường kéo.</p>
+                    <a href="about.html" class="btn-book">Tìm hiểu thêm</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/banner-products.jpg');">
+                <div class="slide-content">
+                    <h1>Không gian thư giãn đẳng cấp</h1>
+                    <p>Trải nghiệm sự thoải mái tuyệt đối với trang thiết bị hiện đại và không gian sang trọng.</p>
+                    <a href="booking.html" class="btn-book">Đặt lịch ngay</a>
+                </div>
+            </div>
+            <div class="slider-dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+        </section>
+
+        <section class="fade-in-section" style="padding: 80px 0;">
+            <div class="about-modern">
+                <div class="about-img" style="flex: 1;">
+                    <img src="images/banner-tools.jpg" alt="Không gian Loly Hairsalon">
+                </div>
+                <div class="about-text">
+                    <h4 style="color: #b08d55; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">Câu chuyện thương hiệu</h4>
+                    <h2>Vẻ đẹp bắt đầu từ sự thấu hiểu</h2>
+                    <p>
+                        Tại <strong>Loly Hairsalon</strong>, chúng tôi không chỉ cắt tóc, chúng tôi thiết kế sự tự tin.
+                        Ra đời từ niềm đam mê sáng tạo, Loly là nơi bạn tìm thấy phiên bản rạng rỡ nhất của chính mình.
+                    </p>
+                    <p>
+                        Chúng tôi cam kết sử dụng 100% sản phẩm chính hãng để mái tóc bạn không chỉ đẹp bên ngoài mà còn khỏe mạnh từ sâu bên trong.
+                    </p>
+                    <div style="display: flex; gap: 40px; margin-top: 30px;">
+                        <div>
+                            <strong style="font-size: 2rem; color: #b08d55; font-family: 'Playfair Display', serif;">10+</strong>
+                            <div style="font-size: 0.9rem;">Năm kinh nghiệm</div>
+                        </div>
+                        <div>
+                            <strong style="font-size: 2rem; color: #b08d55; font-family: 'Playfair Display', serif;">2000+</strong>
+                            <div style="font-size: 0.9rem;">Khách hàng hài lòng</div>
+                        </div>
+                    </div>
+                    <a href="about.html" class="btn-book" style="margin-top: 30px; display: inline-block;">Tìm hiểu thêm</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section fade-in-section">
+            <h4 style="color: #b08d55; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">Review thực tế</h4>
+            <h2 style="font-size: 2.2rem; margin-top: 10px;">Khách hàng nói gì về Loly?</h2>
+            
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="stars"> ★★★★★ </div>
+                    <p class="review-text">"Mình đã cắt ở nhiều nơi nhưng chưa đâu ưng ý như ở đây. Anh thợ tư vấn kiểu tóc layer rất hợp mặt, về nhà gội xong vẫn vào nếp đẹp."</p>
+                    <div class="customer-info">
+                        <img src="https://ui-avatars.com/api/?name=Lan+Anh&background=random" class="customer-avatar" alt="Khách hàng">
+                        <div class="customer-name">Chị Lan Anh</div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"> ★★★★★ </div>
+                    <p class="review-text">"Dịch vụ gội đầu dưỡng sinh siêu phê, mỏi vai gáy vào đây làm một suất là tỉnh cả người. Không gian thơm tho, sạch sẽ."</p>
+                    <div class="customer-info">
+                        <img src="https://ui-avatars.com/api/?name=Thu+Ha&background=random" class="customer-avatar" alt="Khách hàng">
+                        <div class="customer-name">Thu Hà</div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"> ★★★★★ </div>
+                    <p class="review-text">"Màu nhuộm lên chuẩn, tóc không bị khô xơ như tiệm cũ mình làm. Giá cả hợp lý so với chất lượng phục vụ 5 sao."</p>
+                    <div class="customer-info">
+                        <img src="https://ui-avatars.com/api/?name=Minh+Trang&background=random" class="customer-avatar" alt="Khách hàng">
+                        <div class="customer-name">Minh Trang</div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"> ★★★★★ </div>
+                    <p class="review-text">"Cắt tóc nam ở đây rất ưng, thợ cắt kỹ, tư vấn kiểu Side Part rủ rất hợp mặt mình. Không gian chờ cũng thoải mái, sẽ ủng hộ dài dài."</p>
+                    <div class="customer-info">
+                        <img src="https://ui-avatars.com/api/?name=Tuan+Hung&background=random" class="customer-avatar" alt="Khách hàng">
+                        <div class="customer-name">Tuấn Hưng</div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"> ★★★★★ </div>
+                    <p class="review-text">"Tóc mình tẩy nhiều bị khô xơ mà qua Loly phục hồi một buổi xong mượt hẳn. Thích nhất mùi dầu gội thảo dược ở đây, rất thư giãn."</p>
+                    <div class="customer-info">
+                        <img src="https://ui-avatars.com/api/?name=Phuong+Thao&background=random" class="customer-avatar" alt="Khách hàng">
+                        <div class="customer-name">Phương Thảo</div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"> ★★★★★ </div>
+                    <p class="review-text">"Nhân viên nhiệt tình, dễ thương cực kỳ. Làm tóc xong còn được hướng dẫn tỉ mỉ cách sấy tạo kiểu tại nhà nữa. 10 điểm cho chất lượng!"</p>
+                    <div class="customer-info">
+                        <img src="https://ui-avatars.com/api/?name=Chi+Ngoc&background=random" class="customer-avatar" alt="Khách hàng">
+                        <div class="customer-name">Chị Ngọc</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services fade-in-section">
+            <h2>Dịch vụ nổi bật</h2>
+            <div class="services-grid">
+                <div class="service-card product-card">
+                    <div class="service-card-content">
+                        <h3 style="color: #b08d55; margin-bottom: 10px;">Cắt & Tạo kiểu</h3>
+                        <p>Thiết kế kiểu tóc phù hợp với khuôn mặt và cá tính riêng của từng khách hàng.</p>
+                        <a href="services.html" style="font-weight: bold; font-size: 0.9em; margin-top: 10px; display: inline-block;">Xem bảng giá →</a>
+                    </div>
+                </div>
+                <div class="service-card product-card">
+                    <div class="service-card-content">
+                        <h3 style="color: #b08d55; margin-bottom: 10px;">Uốn & Nhuộm</h3>
+                        <p>Sử dụng thuốc chính hãng, kỹ thuật hiện đại giúp tóc lên màu chuẩn và giữ nếp lâu.</p>
+                        <a href="services.html" style="font-weight: bold; font-size: 0.9em; margin-top: 10px; display: inline-block;">Xem bảng giá →</a>
+                    </div>
+                </div>
+                <div class="service-card product-card">
+                    <div class="service-card-content">
+                        <h3 style="color: #b08d55; margin-bottom: 10px;">Gội & Phục hồi</h3>
+                        <p>Thư giãn với gội đầu dưỡng sinh và liệu trình phục hồi chuyên sâu cho tóc hư tổn.</p>
+                        <a href="services.html" style="font-weight: bold; font-size: 0.9em; margin-top: 10px; display: inline-block;">Xem bảng giá →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-banner fade-in-section">
+            <div class="cta-content">
+                <h2>Bạn đã sẵn sàng thay đổi diện mạo?</h2>
+                <p>Đặt lịch ngay hôm nay để nhận ưu đãi giảm <strong>20%</strong> cho lần đầu trải nghiệm tại Loly Hairsalon!</p>
+                <a href="booking.html" class="btn-book" style="background: #fff; color: #b08d55; margin-top: 20px;">Đặt lịch ngay</a>
+            </div>
+        </section>
+
+        <section class="gallery-section fade-in-section">
+            <h2>Tác phẩm tại Loly Hairsalon</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: #777;">
+                Theo dõi hành trình làm đẹp của chúng tôi trên Instagram <a href="#" style="color: #b08d55; font-weight: bold;">@loly.hairsalon</a>
+            </p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="images/gallery-1.jpg" alt="Mẫu tóc 1"></div>
+                <div class="gallery-item"><img src="images/gallery-2.jpg" alt="Mẫu tóc 2"></div>
+                <div class="gallery-item"><img src="images/gallery-3.jpg" alt="Mẫu tóc 3"></div>
+                <div class="gallery-item"><img src="images/gallery-4.jpg" alt="Mẫu tóc 4"></div>
+                <div class="gallery-item"><img src="images/gallery-5.jpg" alt="Mẫu tóc 5"></div>
+                <div class="gallery-item"><img src="images/gallery-6.jpg" alt="Mẫu tóc 6"></div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://instagram.com" target="_blank" class="btn-book" style="background: transparent; border: 1px solid #b08d55; color: #b08d55;">Xem thêm trên Instagram</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content-wrapper" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 1100px; margin: 0 auto; text-align: left; padding-bottom: 30px;">
+            <div class="footer-col" style="flex: 1; min-width: 300px; margin-bottom: 20px;">
+                <h3 style="font-size: 2rem; margin-top: 0; margin-bottom: 20px; color: #3d322d; font-family: 'Playfair Display', serif; line-height: 1.2;">Loly Hairsalon</h3>
+                <p style="margin-bottom: 12px; font-size: 15px;">
+                    <i class="fas fa-map-marker-alt" style="color:#b08d55; width: 20px;"></i>
+                    51/215 Định Công Thượng, Hoàng Mai, HN
+                </p>
+                <p style="margin-bottom: 12px; font-size: 15px;">
+                    <i class="fas fa-phone-alt" style="color:#b08d55; width: 20px;"></i>
+                    <a href="tel:0394536413" style="color: #5a4a42; font-weight: bold;">039.453.6413</a>
+                </p>
+                <div class="social-icons" style="margin-top: 20px; position: relative; z-index: 10;">
+                    <a href="https://www.facebook.com/ohung.541741/?locale=vi_VN" target="_blank" style="margin-right: 15px; font-size: 1.5rem; color: #3b5998; text-decoration: none;">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/trangcuaban" target="_blank" style="margin-right: 15px; font-size: 1.5rem; color: #C13584; text-decoration: none;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@duchung232?lang=vi-VN" target="_blank" style="margin-right: 15px; font-size: 1.5rem; color: #000; text-decoration: none;">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col" style="flex: 1; min-width: 300px; margin-bottom: 20px;">
+                <h4 style="font-size: 1.3rem; margin-top: 0; margin-bottom: 20px; color: #b08d55; font-family: 'Playfair Display', serif; letter-spacing: 1px; line-height: 1.2; padding-top: 8px;">GIỜ MỞ CỬA</h4>
+                <div class="balanced-hours">
+                    <div class="time-row">
+                        <span class="d-label">Thứ 2 - Thứ 6</span>
+                        <span class="d-time">09:00 - 20:00</span>
+                    </div>
+                    <div class="time-row">
+                        <span class="d-label">Thứ 7 - CN</span>
+                        <span class="d-time">08:30 - 21:00</span>
+                    </div>
+                    <div class="shop-active">
+                        <span class="pulsing-dot"></span> Sẵn sàng đón tiếp bạn
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="copyright" style="border-top: 1px solid #e6d5c7; padding-top: 20px; margin-top: 20px;">
+            © 2025 Loly Hairsalon. Đã đăng ký bản quyền.
+        </p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
