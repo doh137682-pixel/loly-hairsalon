@@ -14,4 +14,5 @@
 - **FontAwesome & Google Fonts.**
 
 ##  Demo
-[Chèn link website đã deploy của bạn vào đây - Xem Bước 2]
+
+[https://doh137682-pixel.github.io/loly-hairsalon/]
