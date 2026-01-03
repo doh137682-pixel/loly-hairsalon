@@ -15,7 +15,6 @@ Lọc dịch vụ (Filtering)
 
 Hiệu ứng giao diện
 . Slider banner, hiệu ứng fade-in khi cuộn trang.
-
 Testing Scope
 . Kiểm thử chức năng form đặt lịch
 . Kiểm thử giao diện người dùng (UI Testing)
@@ -34,5 +33,6 @@ Công nghệ sử dụng
 ##  Demo
 
 [https://doh137682-pixel.github.io/loly-hairsalon/]
+
 
 
