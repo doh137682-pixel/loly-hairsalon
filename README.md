@@ -20,7 +20,7 @@ Dự án được thực hiện nhằm hiểu cách một hệ thống web cơ b
 - HTML
 - CSS
 - JavaScript
-- 
+  
 ## Ghi chú
 Dự án được sử dụng cho mục đích học tập và thực hành, tập trung vào việc hiểu hệ thống, quy trình xử lý và trải nghiệm người dùng.
 
@@ -28,6 +28,7 @@ Dự án được sử dụng cho mục đích học tập và thực hành, t�
 ##  Demo
 
 [https://doh137682-pixel.github.io/loly-hairsalon/]
+
 
 
 
