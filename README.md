@@ -50,9 +50,14 @@ Trang admin có đăng nhập, xem lịch hẹn, đổi trạng thái, xóa lị
 
 ## Demo public
 
-Website demo đang chạy trên Render:
+- Website: [https://loly-hairsalon.onrender.com](https://loly-hairsalon.onrender.com)
+- Admin dashboard: [https://loly-hairsalon.onrender.com/admin.html](https://loly-hairsalon.onrender.com/admin.html)
 
-[https://loly-hairsalon.onrender.com](https://loly-hairsalon.onrender.com)
+Tài khoản demo admin:
+
+```text
+admin / 123456
+```
 
 Ghi chú: bản Render miễn phí phù hợp để làm demo portfolio, nhưng dữ liệu SQLite runtime có thể không bền vững như database production.
 
@@ -72,9 +77,3 @@ Ghi chú: bản Render miễn phí phù hợp để làm demo portfolio, nhưng 
 |-- images/            # Hình ảnh giao diện
 `-- data/              # SQLite runtime database, không đưa lên GitHub
 ```
-
-# link demo:
-Website chạy tại `http://localhost:3000/`, trang admin tại `http://localhost:3000/admin.html`.
-
-Tk: admin
-Mk: 123456
