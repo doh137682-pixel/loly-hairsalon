@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản trị viên - Loly Hairsalon</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body { background-color: #f4f6f8; }
+        .admin-container { max-width: 1200px; margin: 40px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .admin-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+        th { background-color: #f9f9f9; font-weight: 600; color: #333; }
+        tr:hover { background-color: #fdfaf7; }
+        .status-badge { padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+        .status-pending { background-color: #fff3cd; color: #856404; }
+        .status-confirmed { background-color: #d4edda; color: #155724; }
+        .status-completed { background-color: #d1ecf1; color: #0c5460; }
+        .status-cancelled { background-color: #f8d7da; color: #721c24; }
+        .status-new { background-color: #fff3cd; color: #856404; }
+        .status-contacted { background-color: #d1ecf1; color: #0c5460; }
+        .status-closed { background-color: #e2e3e5; color: #383d41; }
+        .admin-actions { display: flex; gap: 8px; align-items: center; }
+        .status-select { min-width: 120px; padding: 8px; border: 1px solid #ddd; border-radius: 6px; background: #fff; }
+        .delete-booking, .delete-contact { padding: 8px 10px; border: 0; border-radius: 6px; background: #b3261e; color: #fff; cursor: pointer; }
+        .delete-booking:disabled, .delete-contact:disabled, .status-select:disabled { opacity: 0.6; cursor: not-allowed; }
+        .admin-section-title { margin: 28px 0 12px; font-family: 'Montserrat', sans-serif; color: #333; }
+        .admin-table-wrap { overflow-x: auto; }
+        .admin-login { max-width: 420px; margin: 30px auto; padding: 24px; border: 1px solid #e6d5c7; border-radius: 8px; background: #fdfaf7; }
+        .admin-login h3 { margin-top: 0; }
+        .admin-login label { display: block; margin: 14px 0 6px; font-weight: 600; }
+        .admin-login input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font: inherit; }
+        .admin-login button, .admin-logout { margin-top: 18px; padding: 10px 14px; border: 0; border-radius: 6px; background: #333; color: #fff; cursor: pointer; }
+        .admin-login-message { min-height: 24px; margin-top: 12px; color: #b3261e; }
+        .admin-dashboard[hidden], .admin-login[hidden], .admin-logout[hidden] { display: none; }
+        @media (max-width: 900px) {
+            .admin-container { margin: 20px 10px; overflow-x: auto; }
+            table { min-width: 980px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h2 style="margin: 0;">Danh sách Đặt lịch (Bookings)</h2>
+            <div>
+                <button type="button" id="admin-logout" class="admin-logout" hidden>Đăng xuất</button>
+                <a href="/" class="btn-book" style="background: #333;">Trở về Website</a>
+            </div>
+        </div>
+
+        <section id="admin-login" class="admin-login">
+            <h3>Đăng nhập admin</h3>
+            <form id="admin-login-form">
+                <label for="admin-username">Tài khoản</label>
+                <input id="admin-username" name="username" type="text" autocomplete="username" value="admin" required>
+
+                <label for="admin-password">Mật khẩu</label>
+                <input id="admin-password" name="password" type="password" autocomplete="current-password" required>
+
+                <button type="submit">Đăng nhập</button>
+                <p id="admin-login-message" class="admin-login-message" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <div id="admin-dashboard" class="admin-dashboard" hidden>
+            <h3 class="admin-section-title">Lịch hẹn</h3>
+            <div class="admin-table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Khách hàng</th>
+                        <th>SĐT</th>
+                        <th>Lịch hẹn</th>
+                        <th>Dịch vụ</th>
+                        <th>Stylist</th>
+                        <th>Ghi chú</th>
+                        <th>Trạng thái</th>
+                        <th>Thời gian đặt</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-booking-list">
+                    <tr><td colspan="9" style="text-align: center;">Đang tải dữ liệu...</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3 class="admin-section-title">Yêu cầu tư vấn / liên hệ</h3>
+            <div class="admin-table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Khách hàng</th>
+                        <th>SĐT</th>
+                        <th>Dịch vụ quan tâm</th>
+                        <th>Lời nhắn</th>
+                        <th>Trạng thái</th>
+                        <th>Thời gian gửi</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-contact-list">
+                    <tr><td colspan="7" style="text-align: center;">Đang tải dữ liệu...</td></tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tbody = document.getElementById('admin-booking-list');
+            const contactTbody = document.getElementById('admin-contact-list');
+            const loginPanel = document.getElementById('admin-login');
+            const dashboard = document.getElementById('admin-dashboard');
+            const loginForm = document.getElementById('admin-login-form');
+            const loginMessage = document.getElementById('admin-login-message');
+            const logoutButton = document.getElementById('admin-logout');
+
+            const showLogin = (message = '') => {
+                loginPanel.hidden = false;
+                dashboard.hidden = true;
+                logoutButton.hidden = true;
+                loginMessage.textContent = message;
+            };
+
+            const showDashboard = () => {
+                loginPanel.hidden = true;
+                dashboard.hidden = false;
+                logoutButton.hidden = false;
+                loginMessage.textContent = '';
+            };
+
+            const renderTableMessage = (targetTbody, colspan, message) => {
+                targetTbody.innerHTML = '';
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+                cell.colSpan = colspan;
+                cell.style.textAlign = 'center';
+                cell.textContent = message;
+                row.appendChild(cell);
+                targetTbody.appendChild(row);
+            };
+
+            const renderMessage = (message) => {
+                tbody.innerHTML = '';
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+                cell.colSpan = 9;
+                cell.style.textAlign = 'center';
+                cell.textContent = message;
+                row.appendChild(cell);
+                tbody.appendChild(row);
+            };
+
+            const statusLabels = {
+                pending: 'Chờ xác nhận',
+                confirmed: 'Đã xác nhận',
+                completed: 'Hoàn tất',
+                cancelled: 'Đã hủy'
+            };
+
+            const contactStatusLabels = {
+                new: 'Mới',
+                contacted: 'Đã liên hệ',
+                closed: 'Đã đóng'
+            };
+
+            const contactServiceLabels = {
+                '': '-',
+                'cat-toc': 'Cắt tóc & Tạo kiểu',
+                'uon-nhuom': 'Uốn & Nhuộm',
+                'phuc-hoi': 'Phục hồi tóc',
+                'goi-dau': 'Gội đầu dưỡng sinh'
+            };
+
+            const createCell = (value) => {
+                const cell = document.createElement('td');
+                cell.textContent = value || '-';
+                return cell;
+            };
+
+            const createStatusCell = (booking) => {
+                const cell = document.createElement('td');
+                const badge = document.createElement('span');
+                const status = booking.status || 'pending';
+                badge.className = `status-badge status-${status}`;
+                badge.textContent = statusLabels[status] || status;
+                cell.appendChild(badge);
+                return cell;
+            };
+
+            const createContactStatusCell = (contact) => {
+                const cell = document.createElement('td');
+                const badge = document.createElement('span');
+                const status = contact.status || 'new';
+                badge.className = `status-badge status-${status}`;
+                badge.textContent = contactStatusLabels[status] || status;
+                cell.appendChild(badge);
+                return cell;
+            };
+
+            const createActionsCell = (booking) => {
+                const cell = document.createElement('td');
+                const wrapper = document.createElement('div');
+                wrapper.className = 'admin-actions';
+
+                const select = document.createElement('select');
+                select.className = 'status-select';
+                Object.entries(statusLabels).forEach(([value, label]) => {
+                    const option = document.createElement('option');
+                    option.value = value;
+                    option.textContent = label;
+                    option.selected = (booking.status || 'pending') === value;
+                    select.appendChild(option);
+                });
+                select.addEventListener('change', () => updateBookingStatus(booking.id, select.value, select));
+
+                const deleteButton = document.createElement('button');
+                deleteButton.type = 'button';
+                deleteButton.className = 'delete-booking';
+                deleteButton.textContent = 'Xóa';
+                deleteButton.addEventListener('click', () => deleteBooking(booking.id, deleteButton));
+
+                wrapper.appendChild(select);
+                wrapper.appendChild(deleteButton);
+                cell.appendChild(wrapper);
+                return cell;
+            };
+
+            const createContactActionsCell = (contact) => {
+                const cell = document.createElement('td');
+                const wrapper = document.createElement('div');
+                wrapper.className = 'admin-actions';
+
+                const select = document.createElement('select');
+                select.className = 'status-select';
+                Object.entries(contactStatusLabels).forEach(([value, label]) => {
+                    const option = document.createElement('option');
+                    option.value = value;
+                    option.textContent = label;
+                    option.selected = (contact.status || 'new') === value;
+                    select.appendChild(option);
+                });
+                select.addEventListener('change', () => updateContactStatus(contact.id, select.value, select));
+
+                const deleteButton = document.createElement('button');
+                deleteButton.type = 'button';
+                deleteButton.className = 'delete-contact';
+                deleteButton.textContent = 'Xóa';
+                deleteButton.addEventListener('click', () => deleteContact(contact.id, deleteButton));
+
+                wrapper.appendChild(select);
+                wrapper.appendChild(deleteButton);
+                cell.appendChild(wrapper);
+                return cell;
+            };
+
+            const loadContacts = () => fetch('/api/contacts', { credentials: 'same-origin' })
+                .then(res => {
+                    if (res.status === 401) {
+                        const authError = new Error('unauthorized');
+                        authError.isAuthError = true;
+                        throw authError;
+                    }
+                    if (!res.ok) throw new Error('Không thể tải dữ liệu liên hệ.');
+                    return res.json();
+                })
+                .then(result => {
+                    contactTbody.innerHTML = '';
+                    if (result.success && result.data.length > 0) {
+                        result.data.forEach(contact => {
+                            const row = document.createElement('tr');
+
+                            const nameCell = document.createElement('td');
+                            const name = document.createElement('strong');
+                            name.textContent = contact.name || '-';
+                            nameCell.appendChild(name);
+
+                            const createdCell = document.createElement('td');
+                            createdCell.style.color = '#999';
+                            createdCell.style.fontSize = '0.85em';
+                            createdCell.textContent = contact.created_at ? new Date(contact.created_at).toLocaleString('vi-VN') : '-';
+
+                            row.appendChild(nameCell);
+                            row.appendChild(createCell(contact.phone));
+                            row.appendChild(createCell(contactServiceLabels[contact.service] || contact.service || '-'));
+                            row.appendChild(createCell(contact.message));
+                            row.appendChild(createContactStatusCell(contact));
+                            row.appendChild(createdCell);
+                            row.appendChild(createContactActionsCell(contact));
+                            contactTbody.appendChild(row);
+                        });
+                    } else {
+                        renderTableMessage(contactTbody, 7, 'Chưa có yêu cầu liên hệ nào.');
+                    }
+                })
+                .catch(err => {
+                    if (err.isAuthError) {
+                        showLogin('Vui lòng đăng nhập để xem dữ liệu admin.');
+                        return;
+                    }
+                    console.error(err);
+                    renderTableMessage(contactTbody, 7, 'Lỗi tải dữ liệu liên hệ.');
+                });
+
+            const loadBookings = () => fetch('/api/bookings', { credentials: 'same-origin' })
+                .then(res => {
+                    if (res.status === 401) {
+                        const authError = new Error('unauthorized');
+                        authError.isAuthError = true;
+                        throw authError;
+                    }
+                    if (!res.ok) throw new Error('Không thể tải dữ liệu đặt lịch.');
+                    return res.json();
+                })
+                .then(result => {
+                    showDashboard();
+                    tbody.innerHTML = '';
+                    if (result.success && result.data.length > 0) {
+                        result.data.forEach(b => {
+                            const row = document.createElement('tr');
+
+                            const nameCell = document.createElement('td');
+                            const name = document.createElement('strong');
+                            name.textContent = b.name || '-';
+                            nameCell.appendChild(name);
+
+                            const scheduleCell = document.createElement('td');
+                            const time = document.createElement('span');
+                            time.style.color = '#b08d55';
+                            time.style.fontWeight = 'bold';
+                            time.textContent = b.time || '-';
+                            scheduleCell.appendChild(time);
+                            scheduleCell.appendChild(document.createElement('br'));
+                            scheduleCell.appendChild(document.createTextNode(b.date || '-'));
+
+                            const createdCell = document.createElement('td');
+                            createdCell.style.color = '#999';
+                            createdCell.style.fontSize = '0.85em';
+                            createdCell.textContent = b.created_at ? new Date(b.created_at).toLocaleString('vi-VN') : '-';
+
+                            row.appendChild(nameCell);
+                            row.appendChild(createCell(b.phone));
+                            row.appendChild(scheduleCell);
+                            row.appendChild(createCell(b.service));
+                            row.appendChild(createCell(b.stylist));
+                            row.appendChild(createCell(b.note));
+                            row.appendChild(createStatusCell(b));
+                            row.appendChild(createdCell);
+                            row.appendChild(createActionsCell(b));
+                            tbody.appendChild(row);
+                        });
+                    } else {
+                        renderMessage('Chưa có lịch hẹn nào.');
+                    }
+                    return loadContacts();
+                })
+                .catch(err => {
+                    if (err.isAuthError) {
+                        showLogin('Vui lòng đăng nhập để xem lịch hẹn.');
+                        return;
+                    }
+                    console.error(err);
+                    showDashboard();
+                    renderMessage('Lỗi tải dữ liệu đặt lịch.');
+                });
+
+            const updateBookingStatus = (bookingId, status, control) => {
+                control.disabled = true;
+                fetch(`/api/bookings/${encodeURIComponent(bookingId)}/status`, {
+                    method: 'PATCH',
+                    credentials: 'same-origin',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status })
+                })
+                    .then(res => {
+                        if (!res.ok) throw new Error('Không thể cập nhật trạng thái.');
+                        return res.json();
+                    })
+                    .then(loadBookings)
+                    .catch(err => {
+                        console.error(err);
+                        alert('Không thể cập nhật trạng thái lịch hẹn.');
+                        loadBookings();
+                    });
+            };
+
+            const deleteBooking = (bookingId, button) => {
+                if (!confirm('Xóa lịch hẹn này?')) return;
+
+                button.disabled = true;
+                fetch(`/api/bookings/${encodeURIComponent(bookingId)}`, {
+                    method: 'DELETE',
+                    credentials: 'same-origin'
+                })
+                    .then(res => {
+                        if (!res.ok) throw new Error('Không thể xóa lịch hẹn.');
+                        return res.json();
+                    })
+                    .then(loadBookings)
+                    .catch(err => {
+                        console.error(err);
+                        alert('Không thể xóa lịch hẹn.');
+                        loadBookings();
+                    });
+            };
+
+            const updateContactStatus = (contactId, status, control) => {
+                control.disabled = true;
+                fetch(`/api/contacts/${encodeURIComponent(contactId)}/status`, {
+                    method: 'PATCH',
+                    credentials: 'same-origin',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status })
+                })
+                    .then(res => {
+                        if (!res.ok) throw new Error('Không thể cập nhật trạng thái liên hệ.');
+                        return res.json();
+                    })
+                    .then(loadContacts)
+                    .catch(err => {
+                        console.error(err);
+                        alert('Không thể cập nhật trạng thái liên hệ.');
+                        loadContacts();
+                    });
+            };
+
+            const deleteContact = (contactId, button) => {
+                if (!confirm('Xóa yêu cầu liên hệ này?')) return;
+
+                button.disabled = true;
+                fetch(`/api/contacts/${encodeURIComponent(contactId)}`, {
+                    method: 'DELETE',
+                    credentials: 'same-origin'
+                })
+                    .then(res => {
+                        if (!res.ok) throw new Error('Không thể xóa yêu cầu liên hệ.');
+                        return res.json();
+                    })
+                    .then(loadContacts)
+                    .catch(err => {
+                        console.error(err);
+                        alert('Không thể xóa yêu cầu liên hệ.');
+                        loadContacts();
+                    });
+            };
+
+            loginForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                loginMessage.textContent = 'Đang đăng nhập...';
+
+                const formData = new FormData(loginForm);
+                fetch('/api/admin/login', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(Object.fromEntries(formData.entries()))
+                })
+                    .then(res => res.json().then(data => ({ ok: res.ok, data })))
+                    .then(({ ok, data }) => {
+                        if (!ok || !data.success) {
+                            throw new Error(data.error || 'Không thể đăng nhập.');
+                        }
+
+                        loginForm.reset();
+                        document.getElementById('admin-username').value = 'admin';
+                        return loadBookings();
+                    })
+                    .catch(err => {
+                        loginMessage.textContent = err.message || 'Không thể đăng nhập.';
+                    });
+            });
+
+            logoutButton.addEventListener('click', () => {
+                fetch('/api/admin/logout', {
+                    method: 'POST',
+                    credentials: 'same-origin'
+                })
+                    .finally(() => showLogin('Đã đăng xuất.'));
+            });
+
+            loadBookings();
+        });
+    </script>
+</body>
+</html>

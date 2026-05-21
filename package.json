@@ -1,0 +1,27 @@
+{
+  "name": "lolyhairsalon",
+  "version": "1.0.0",
+  "description": "Portfolio full-stack website for a hair salon with booking, contact, blog and admin dashboard.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --check server.js && node --check main.js"
+  },
+  "keywords": [
+    "hair-salon",
+    "booking",
+    "express",
+    "sqlite",
+    "portfolio"
+  ],
+  "author": "Loly Hairsalon",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.1",
+    "helmet": "^8.1.0",
+    "sqlite3": "^6.0.1"
+  }
+}
