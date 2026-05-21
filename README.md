@@ -43,7 +43,7 @@ Trang admin có đăng nhập, xem lịch hẹn, đổi trạng thái, xóa lị
 ## Công nghệ sử dụng
 
 - Frontend: HTML5, CSS3, Vanilla JavaScript.
-- Backend: Node.js, Express.
+- Backend: Node.js 20 LTS, Express.
 - Database: SQLite.
 - API: quản lý lịch hẹn, liên hệ, bài viết và kiểm tra khung giờ trống.
 - Security cơ bản: Helmet, cookie đăng nhập admin, rate limiting.

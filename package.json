@@ -17,6 +17,9 @@
   "author": "Loly Hairsalon",
   "license": "ISC",
   "type": "commonjs",
+  "engines": {
+    "node": "20.18.1"
+  },
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
