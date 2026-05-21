@@ -50,11 +50,9 @@ Trang admin có đăng nhập, xem lịch hẹn, đổi trạng thái, xóa lị
 
 ## Demo public
 
-Project đã chuẩn bị cấu hình `render.yaml` để deploy lên Render. Sau khi repo được đưa lên GitHub và kết nối với Render, nền tảng sẽ cấp link public dạng:
+Website demo đang chạy trên Render:
 
-```text
-https://lolyhairsalon.onrender.com
-```
+[https://loly-hairsalon.onrender.com](https://loly-hairsalon.onrender.com)
 
 Ghi chú: bản Render miễn phí phù hợp để làm demo portfolio, nhưng dữ liệu SQLite runtime có thể không bền vững như database production.
 
